@@ -10,11 +10,9 @@ function CategoryInput() {
   return (
     <div>
       <select>
-        <option value="">Grapefruit</option>;<option value="lime">Lime</option>;
-        <option selected value="coconut">
-          Coconut
-        </option>
-        ;<option value="mango">Mango</option>;
+        <option value="">Grapefruit</option>;
+        <option value="coconut">Coconut</option>;
+        <option value="mango">Mango</option>;
       </select>
     </div>
   );

@@ -1,0 +1,17 @@
+.NewReimbursement {
+  width: 100%;
+  height: 600px;
+  display: flex;
+}
+
+.NewReimbursement .leftNewReimb {
+  background-color: aquamarine;
+  width: 50%;
+  height: 600px;
+}
+.NewReimbursement .rightNewReimb {
+  background-color: aqua;
+  width: 50%;
+  height: 600px;
+  text-align: right;
+}
