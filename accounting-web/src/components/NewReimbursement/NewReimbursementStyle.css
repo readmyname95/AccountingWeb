@@ -1,17 +1,27 @@
 .NewReimbursement {
   width: 100%;
-  height: 600px;
   display: flex;
 }
 
 .NewReimbursement .leftNewReimb {
-  background-color: aquamarine;
+  background-color: white;
   width: 50%;
-  height: 600px;
+  height: 800px;
+  border: 1px solid gray;
 }
 .NewReimbursement .rightNewReimb {
   background-color: aqua;
   width: 50%;
-  height: 600px;
-  text-align: right;
+  height: 800px;
+  border: 1px gray;
+  border-style: solid solid solid none;
+}
+
+.centralLabel {
+  text-align: center;
+}
+
+.reimbursementTitle {
+  display: block;
+  text-align: center;
 }

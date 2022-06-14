@@ -1,11 +1,12 @@
 import React from "react";
+import Button from "@mui/material/Button";
 import "./UploadImgStyle.css";
 
 function UploadImg() {
   return (
-    <div>
-      <button>Upload</button>
-    </div>
+    <Button variant="contained" size="small">
+      Add
+    </Button>
   );
 }
 

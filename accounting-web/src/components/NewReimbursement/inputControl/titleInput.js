@@ -1,10 +1,17 @@
 import React from "react";
-import "./titleInputStyle.css";
+import TextField from "@mui/material/TextField";
+import "./TitleInputStyle.css";
 
-function TitleInput() {
+function TitleInput({ handleInputFormDataChange }) {
   return (
     <div>
-      <input type="text"></input>
+      <TextField
+        id="standardTitle"
+        name="Title"
+        label="Title *"
+        variant="standard"
+        onChange={handleInputFormDataChange}
+      />
     </div>
   );
 }
