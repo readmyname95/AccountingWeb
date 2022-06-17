@@ -3,10 +3,15 @@ import Button from "@mui/material/Button";
 import "../RightInputControl/listView";
 import "./AddNewDataStyle.css";
 
-function AddNewData() {
+function AddNewData({ handleReimbursementList }) {
   return (
-    <Button className="submitButton" variant="contained" size="small">
-      Submit
+    <Button
+      className="submitButton"
+      variant="contained"
+      size="small"
+      onClick={handleReimbursementList}
+    >
+      Add
     </Button>
   );
 }

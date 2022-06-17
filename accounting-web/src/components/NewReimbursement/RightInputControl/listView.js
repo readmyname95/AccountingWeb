@@ -6,12 +6,10 @@ import "../inputControl/DescriptionInput";
 import "../inputControl/ReciptInput";
 import "../inputControl/TitleInput";
 import "../ReimbursementButton/AddNewData";
-import "../ReimbursementButton/UploadImg";
+import "../ReimbursementButton/SubmitNewData";
 import "./listViewStyle.css";
 
-function ListView(addFormData) {
-  const [reimbursementList, setReimbursementList] = useState([]);
-
+function ListView({ reimbursementList }) {
   return (
     <div className="reimburseListView">
       <label className="reimbursementTitle">Reimbursement</label>
@@ -29,7 +27,7 @@ function ListView(addFormData) {
           {reimbursementList.map(
             (reimburseData, index) =>
               (reimburseData = !null ? (
-                <tr>
+                <tr key={index}>
                   <th>{index + 1}</th>
                   <th>{reimburseData.Title}</th>
                   <th>{reimburseData.Amount}</th>

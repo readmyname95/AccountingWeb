@@ -1,13 +1,13 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import "./UploadImgStyle.css";
+import "./SubmitNewData.css";
 
-function UploadImg() {
+function SubmitNewData() {
   return (
     <Button variant="contained" size="small">
-      Add
+      Submit
     </Button>
   );
 }
 
-export default UploadImg;
+export default SubmitNewData;
