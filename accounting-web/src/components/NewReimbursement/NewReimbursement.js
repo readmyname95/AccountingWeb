@@ -4,11 +4,13 @@ import TitleInput from "./inputControl/TitleInput";
 import AmountInput from "./inputControl/AmountInput";
 import AddNewData from "./ReimbursementButton/AddNewData";
 import CategoryInput from "./inputControl/CategoryInput";
-import UploadImg from "./ReimbursementButton/UploadImg";
+import SubmitNewData from "./ReimbursementButton/SubmitNewData";
 import ReciptInput from "./inputControl/ReciptInput";
 import ListView from "./RightInputControl/listView";
 import "./NewReimbursementStyle.css";
+import { nanoid } from "nanoid";
 import { FormControl } from "@mui/material";
+import data from "./data.json";
 
 function NewReimbursement() {
   const [addFormData, setAddFormData] = useState({
@@ -18,11 +20,18 @@ function NewReimbursement() {
     Description: "",
   });
 
+  const [reimbursementList, setReimbursementList] = useState(data);
+
   const handleSelectFormDataChange = (event) => {
     event.preventDefault();
 
-    const SelectName = event.target.getAttribute("name");
-    console.log(SelectName);
+    const SelectName = event.target.name;
+    const SelectValue = event.target.value;
+
+    const newSelectFormData = { ...addFormData };
+    newSelectFormData[SelectName] = SelectValue;
+
+    setAddFormData(newSelectFormData);
   };
 
   const handleInputFormDataChange = (event) => {
@@ -35,6 +44,25 @@ function NewReimbursement() {
     newFormData[fieldName] = fieldValue;
 
     setAddFormData(newFormData);
+  };
+
+  const handleReimbursementList = (event) => {
+    event.preventDefault();
+
+    const newReimbursementListData = {
+      id: nanoid(),
+      Title: addFormData.Title,
+      Amount: addFormData.Amount,
+      Category: addFormData.Category,
+      Description: addFormData.Description,
+    };
+
+    const ReimbursementListDatas = [
+      ...reimbursementList,
+      newReimbursementListData,
+    ];
+
+    setReimbursementList(ReimbursementListDatas);
   };
 
   return (
@@ -56,13 +84,16 @@ function NewReimbursement() {
           <label>Recipt</label>
           <ReciptInput />
           <br />
-          <UploadImg />
+          <AddNewData handleReimbursementList={handleReimbursementList} />
           <br />
-          <AddNewData />
+          <SubmitNewData />
         </FormControl>
       </div>
       <div className="rightNewReimb">
-        <ListView addFormData={addFormData} />
+        <ListView
+          addFormData={addFormData}
+          reimbursementList={reimbursementList}
+        />
       </div>
     </div>
   );

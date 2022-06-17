@@ -18,6 +18,7 @@ function CategoryInput({ handleSelectFormDataChange }) {
 
   const handleChange = (event) => {
     setCategoryState(event.target.value);
+    handleSelectFormDataChange(event);
   };
 
   return (
@@ -31,7 +32,6 @@ function CategoryInput({ handleSelectFormDataChange }) {
         value={categoryState}
         label="Category"
         onChange={handleChange}
-        onChange={handleSelectFormDataChange}
       >
         {CategoryOptions.map((data) => (
           <MenuItem key={data.key} value={data.value}>
